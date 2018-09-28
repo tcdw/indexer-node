@@ -12,6 +12,7 @@ const templateFile = path.resolve(__dirname, 'template/index.ejs');
 
 if (argv.h || argv.help) {
     console.log('usage: indexer [-p port_number] [-t website_title] [directory]');
+}
 
 const port = typeof argv.p === 'number' ? argv.p : 8888;
 const siteTitle = typeof argv.t === 'string' ? argv.t : '文件服务器';
