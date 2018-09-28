@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "ejs": "^2.6.1",
+    "file-size": "^1.0.0",
     "minimist": "^1.2.0"
   },
   "devDependencies": {
