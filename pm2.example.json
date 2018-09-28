@@ -1,0 +1,16 @@
+{
+    "apps": [
+        {
+        "name": "indexer",
+        "script": "node",
+        "args": [
+            "index.js",
+            "-t",
+            "某折腾党的文件服务器",
+            "/path/to/your/data"
+        ],
+        "merge_logs": true,
+        "cwd": "./"
+        }
+    ]
+}

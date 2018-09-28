@@ -10,11 +10,6 @@
         .custom-title {
             margin: 2rem 0;
         }
-        @media (max-width: 576px) {
-            .custom-filesize {
-                display: none;
-            }
-        }
     </style>
 </head>
 <body>
@@ -27,7 +22,9 @@
                         <%_ for (var i = 0; i < breadCrumb.length; i++) { _%>
                             <li class="breadcrumb-item<%_ if (i >= breadCrumb.length - 1) {
                                 %> active"><%= breadCrumb[i].name %>
-                                <%_ } else { _%>"><a href="<%= breadCrumb[i].url %>"><%= breadCrumb[i].name %></a>
+                                <%_ } else {
+                                    var tempURL = '../'.repeat(breadCrumb.length - i - 1);
+                                    _%>"><a href="<%= tempURL %>"><%= breadCrumb[i].name %></a>
                             <%_ } _%></li>
                         <%_ } _%>
                     </ol>
@@ -36,14 +33,12 @@
                     <thead>
                         <tr>
                             <th>File Name</th>
-                            <th class="custom-filesize">Size</th>
                         </tr>
                     </thead>
                     <tbody>
                         <%_ for (var i = 0; i < fileList.length; i++) { _%>
                             <tr>
                                 <td><a href="<%= fileList[i].url %>"><%= fileList[i].name %></a></td>
-                                <td class="custom-filesize"><%= fileList[i].size %></td>
                             </tr>
                         <%_ } _%>
                     </tbody>
