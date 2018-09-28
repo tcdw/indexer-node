@@ -11,9 +11,8 @@ const ejsRenderFile = util.promisify(ejs.renderFile);
 const templateFile = path.resolve(__dirname, 'template/index.ejs');
 
 if (argv.h || argv.help) {
-    console.log('usage: indexer [-b bind] [-p port_number] [-t website_title] [directory]');
-}
-const bind = typeof argv.b === 'string' ? argv.b : '127.0.0.1';
+    console.log('usage: indexer [-p port_number] [-t website_title] [directory]');
+
 const port = typeof argv.p === 'number' ? argv.p : 8888;
 const siteTitle = typeof argv.t === 'string' ? argv.t : '文件服务器';
 const dir = typeof argv._[0] !== 'undefined' ? path.resolve(process.cwd(), argv._[0]) : process.cwd();
@@ -70,6 +69,6 @@ http.createServer(async (request, response) => {
         response.end('Internal server error');
     }));
     return true;
-}).listen(bind);
+}).listen(port);
 
-console.log(`Server running at http://${bind}:${port}/`);
+console.log(`Server running at http://127.0.0.1:${port}/`);
