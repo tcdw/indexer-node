@@ -24,11 +24,12 @@
                 <h2 class="custom-title"><%= siteTitle %></h2>
                 <nav>
                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Root</a></li>
                         <%_ for (var i = 0; i < breadCrumb.length; i++) { _%>
-                            <li class="breadcrumb-item<%_
-                                if (i >= breadCrumb.length - 1) {
-                                    _%> active<%_
-                                } _%>"><a href="<%= breadCrumb[i].url %>"><%= breadCrumb[i].name %></a></li>
+                            <li class="breadcrumb-item<%_ if (i >= breadCrumb.length - 1) {
+                                %> active"><%= breadCrumb[i].name %>
+                                <%_ } else { _%>"><a href="<%= breadCrumb[i].url %>"><%= breadCrumb[i].name %></a>
+                            <%_ } _%></li>
                         <%_ } _%>
                     </ol>
                 </nav>
