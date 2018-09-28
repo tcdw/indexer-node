@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= siteTitle %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-title {
+            margin: 2rem 0;
+        }
+        @media (max-width: 576px) {
+            .custom-filesize {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="custom-title"><%= siteTitle %></h2>
+                <nav>
+                    <ol class="breadcrumb">
+                        <%_ for (var i = 0; i < breadCrumb.length; i++) { _%>
+                            <li class="breadcrumb-item<%_
+                                if (i >= breadCrumb.length - 1) {
+                                    _%> active<%_
+                                } _%>"><a href="<%= breadCrumb[i].url %>"><%= breadCrumb[i].name %></a></li>
+                        <%_ } _%>
+                    </ol>
+                </nav>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>File Name</th>
+                            <th class="custom-filesize">Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%_ for (var i = 0; i < fileList.length; i++) { _%>
+                            <tr>
+                                <td><a href="<%= fileList[i].url %>"><%= fileList[i].name %></a></td>
+                                <td class="custom-filesize"><%= fileList[i].size %></td>
+                            </tr>
+                        <%_ } _%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
